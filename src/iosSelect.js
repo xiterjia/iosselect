@@ -115,6 +115,7 @@
 					this.el.parentNode.removeChild(this.el);
 					this.el = null;
 				}
+				$('div.body_all').css('overflow','auto');
 			}
 		}
 	}
@@ -156,6 +157,9 @@
 		if (this.options.cssUnit !== 'px' && this.options.cssUnit !== 'rem') {
 			this.options.cssUnit = 'px';
 		}
+
+		this.options.btnCancelText = options.btnCancelText || '取消';
+		this.options.btnOkText = options.btnOkText || '确定';
 		this.setBase();
 		this.init();
 	};
@@ -175,8 +179,8 @@
 			var self = this;
 			var all_html = [
 				'<header style="height: ' + this.options.headerHeight + this.options.cssUnit + '; line-height: ' + this.options.headerHeight + this.options.cssUnit + '" class="iosselect-header">',
-					'<a style="height: ' + this.options.headerHeight + this.options.cssUnit + '; line-height: ' + this.options.headerHeight + this.options.cssUnit + '" href="javascript:void(0)" class="close">取消</a>',
-					'<a style="height: ' + this.options.headerHeight + this.options.cssUnit + '; line-height: ' + this.options.headerHeight + this.options.cssUnit + '" href="javascript:void(0)" class="sure">确定</a>',
+					'<a style="height: ' + this.options.headerHeight + this.options.cssUnit + '; line-height: ' + this.options.headerHeight + this.options.cssUnit + '" href="javascript:void(0)" class="close">' + this.options.btnCancelText +'</a>',
+					'<a style="height: ' + this.options.headerHeight + this.options.cssUnit + '; line-height: ' + this.options.headerHeight + this.options.cssUnit + '" href="javascript:void(0)" class="sure">' + this.options.btnOkText + '</a>',
 					'<h2 id="iosSelectTitle"></h2>',
 				'</header>',
 				'<section class="iosselect-box">',
